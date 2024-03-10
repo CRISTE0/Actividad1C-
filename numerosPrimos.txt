@@ -1,0 +1,43 @@
+namespace consola;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int numeroSecuencia;
+        int primosEncontrados=0;
+        int numeroActual=2;
+
+        Console.WriteLine($"\t***********************************************");
+        Console.WriteLine($"\tIngrese cuantos numeros primos desea imprimir");
+        Console.WriteLine($"\t***********************************************");
+        numeroSecuencia = int.Parse(Console.ReadLine());
+
+
+
+        while (primosEncontrados<numeroSecuencia )
+        {
+            bool primo = true;
+
+            for (int j = 2; j <= numeroActual/2; j++)
+            {
+                if (numeroActual % j == 0)
+                {
+                    primo = false;
+                    break;
+                }
+            }
+
+            if (primo)
+            {
+                Console.WriteLine($"{numeroActual}");
+                primosEncontrados++;
+            }
+            numeroActual++;
+
+        }
+        
+    }
+
+
+
+}

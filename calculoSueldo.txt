@@ -1,0 +1,52 @@
+namespace consola;
+class Program
+{
+    public static void Main(string[] args)
+    {
+        int cantidadEmpleados = 0;
+        double renta = 0;
+        double AFP = 0;
+        double seguroSocial = 0;
+        double DescuentoRenta = 0;
+        double DescuentoAFP = 0;
+        double DescuentoSeguroSocial = 0;
+        double sueldoEmpleado = 0;
+        double sueldoEmpleadoNeto = 0;
+        double totalSueldosNeto = 0;
+        double totalRenta = 0;
+        double totalAFP = 0;
+        double totalSeguroSocial = 0;
+
+
+
+
+        Console.WriteLine("¿Cuantos empleados tiene la empresa?");
+        cantidadEmpleados = int.Parse(Console.ReadLine());
+
+        for (int i = 1; i <= cantidadEmpleados; i++)
+        {
+            Console.WriteLine($"Cuanto es el sueldo del empleado {i}");
+            sueldoEmpleado = double.Parse(Console.ReadLine());
+            DescuentoRenta = 10 / sueldoEmpleado * 100;
+            DescuentoAFP = 5 / sueldoEmpleado * 100;
+            DescuentoSeguroSocial = 4 / sueldoEmpleado * 100;
+            sueldoEmpleadoNeto = sueldoEmpleado - DescuentoRenta - DescuentoAFP - DescuentoSeguroSocial;
+
+            totalSueldosNeto += sueldoEmpleadoNeto;
+            totalRenta += DescuentoRenta;
+            totalAFP += DescuentoAFP;
+            totalSeguroSocial += DescuentoSeguroSocial;
+
+            Console.WriteLine($"El sueldo del empleado {i} es : {sueldoEmpleadoNeto}");
+        }
+
+        Console.WriteLine($"\t*************************************************************");
+        Console.WriteLine($"\tEl total de dinero a pagar en sueldos es: {totalSueldosNeto}");
+        Console.WriteLine($"\tEl total de dinero retenido en renta es: {totalRenta}");
+        Console.WriteLine($"\tEl total de dinero retenido en AFP es: {totalAFP}");
+        Console.WriteLine($"\tEl total de dinero retenido en seguro social es: {totalSeguroSocial}");
+        Console.WriteLine($"\t*************************************************************");
+
+    }
+
+}
